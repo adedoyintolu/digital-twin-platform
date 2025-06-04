@@ -430,7 +430,8 @@ function AnalysisPanel({ data, cognitive, cognitiveLevel, seeLess, onClick }) {
               Body Part Discomfort
             </h4>
             <div style={{ display: "grid", gap: "4px" }}>
-              {Object.entries(data).map(([part, value]) => (
+              {Object.entries(data).filter(([part, value]) => !['shoulder'].includes(part)).map(([part, value]) => (
+
                 <div
                   key={part}
                   style={{
@@ -468,56 +469,6 @@ function AnalysisPanel({ data, cognitive, cognitiveLevel, seeLess, onClick }) {
             </div>
           </div>
         )}
-
-        <div style={{ marginTop: "12px", fontSize: "11px", color: "#666" }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "4px",
-              marginBottom: "2px",
-            }}
-          >
-            <div
-              style={{
-                width: "12px",
-                height: "12px",
-                backgroundColor: "#4CAF50",
-                borderRadius: "2px",
-              }}
-            ></div>
-            <span>Low Risk (0-3)</span>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "4px",
-              marginBottom: "2px",
-            }}
-          >
-            <div
-              style={{
-                width: "12px",
-                height: "12px",
-                backgroundColor: "#FF9800",
-                borderRadius: "2px",
-              }}
-            ></div>
-            <span>Medium Risk (3-6)</span>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-            <div
-              style={{
-                width: "12px",
-                height: "12px",
-                backgroundColor: "#F44336",
-                borderRadius: "2px",
-              }}
-            ></div>
-            <span>High Risk (6+)</span>
-          </div>
-        </div>
       </div>
 
       <button
